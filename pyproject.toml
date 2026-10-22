@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "php2shell-check"
+version = "1.0.0"
+description = "Non-destructive remote exposure assessment for PHP2Shell (CVE-2026-109618, CVE-2026-109619)"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Proprietary - authorised assessments only" }
+dependencies = [
+    "requests>=2.31",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+php2shell = "php2shell.cli:main"
+
+[tool.setuptools]
+packages = ["php2shell"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+markers = [
+    "lab: requires locally built PHP binaries (set PHP2SHELL_LAB_BUILDS)",
+]

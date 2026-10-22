@@ -1,0 +1,1026 @@
+{
+  "tool": "php2shell-check",
+  "tool_version": "1.0.0",
+  "started": "2026-10-21T20:39:53+00:00",
+  "finished": "2026-10-21T20:39:55+00:00",
+  "config": {
+    "timeout": 10.0,
+    "max_requests_per_target": 8,
+    "request_interval": 0.3,
+    "concurrency": 1,
+    "max_redirects": 3,
+    "error_threshold": 3,
+    "check_info_paths": false,
+    "phpinfo_urls": [
+      "http://127.0.0.1:8426/phpinfo.php",
+      "http://127.0.0.1:8512/phpinfo.php"
+    ],
+    "verify_tls": true
+  },
+  "advisories": {
+    "CVE-2026-109618": {
+      "ghsa": "GHSA-w8hw-w9fx-j79w",
+      "title": "RCE via OOM corruption",
+      "cvss": "9.2 (CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N)",
+      "references": [
+        "https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w",
+        "https://www.php.net/ChangeLog-8.php",
+        "https://www.wiz.io/blog/php2shell-php-rce"
+      ]
+    },
+    "CVE-2026-109619": {
+      "ghsa": "GHSA-6wmf-4rv5-p3rp",
+      "title": "RCE via stale global state",
+      "cvss": "9.2 (CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N)",
+      "references": [
+        "https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp",
+        "https://www.php.net/ChangeLog-8.php",
+        "https://www.wiz.io/blog/php2shell-php-rce"
+      ]
+    }
+  },
+  "fixed_releases": {
+    "8.2": "8.2.35",
+    "8.3": "8.3.36",
+    "8.4": "8.4.27",
+    "8.5": "8.5.12"
+  },
+  "signatures_used": [
+    "H1",
+    "H4"
+  ],
+  "results": [
+    {
+      "target": "http://127.0.0.1:8426/",
+      "started": "2026-10-21T20:39:53+00:00",
+      "finished": "2026-10-21T20:39:54+00:00",
+      "reachable": true,
+      "final_url": "http://127.0.0.1:8426/",
+      "http_status": 200,
+      "error": null,
+      "php_detection": {
+        "detected": true,
+        "confidence": "HIGH",
+        "score": 1.0,
+        "evidence": [
+          {
+            "kind": "php_presence",
+            "method": "header.x-powered-by",
+            "description": "X-Powered-By header names PHP",
+            "source_url": "http://127.0.0.1:8426/",
+            "observed": "PHP/8.4.26",
+            "weight": 0.95,
+            "validated": false
+          },
+          {
+            "kind": "php_presence",
+            "method": "cookie.phpsessid",
+            "description": "Default PHP session cookie name (session.name)",
+            "source_url": "http://127.0.0.1:8426/",
+            "observed": "PHPSESSID=<32 chars>",
+            "weight": 0.6,
+            "validated": false
+          },
+          {
+            "kind": "php_presence",
+            "method": "phpinfo",
+            "description": "phpinfo() output is exposed",
+            "source_url": "http://127.0.0.1:8426/phpinfo.php",
+            "observed": "PHP Version 8.4.26",
+            "weight": 1.0,
+            "validated": false
+          },
+          {
+            "kind": "php_presence",
+            "method": "header.x-powered-by",
+            "description": "X-Powered-By header names PHP",
+            "source_url": "http://127.0.0.1:8426/phpinfo.php",
+            "observed": "PHP/8.4.26",
+            "weight": 0.95,
+            "validated": false
+          }
+        ],
+        "non_php_evidence": []
+      },
+      "php_version": "8.4.26",
+      "version_observations": [
+        {
+          "version": "8.4.26",
+          "method": "header.x-powered-by",
+          "url": "http://127.0.0.1:8426/",
+          "vendor": null,
+          "backport_possible": false
+        },
+        {
+          "version": "8.4.26",
+          "method": "phpinfo",
+          "url": "http://127.0.0.1:8426/phpinfo.php",
+          "vendor": null,
+          "backport_possible": false
+        },
+        {
+          "version": "8.4.26",
+          "method": "header.x-powered-by",
+          "url": "http://127.0.0.1:8426/phpinfo.php",
+          "vendor": null,
+          "backport_possible": false
+        }
+      ],
+      "phpinfo_pages": [
+        "http://127.0.0.1:8426/phpinfo.php"
+      ],
+      "findings": [
+        {
+          "target": "http://127.0.0.1:8426/",
+          "cve": "CVE-2026-109618",
+          "classification": "CONFIRMED_VULNERABLE",
+          "confidence": "HIGH",
+          "rationale": "phpinfo() at http://127.0.0.1:8426/phpinfo.php reports PHP 8.4.26 (Upstream version 8.4.26 is below the fixed release 8.4.27), and its complete Core directive table lacks memory_hard_limit_percent, which the fix registers. The build does not contain the fix.",
+          "detection_methods": [
+            "phpinfo",
+            "phpinfo.patch-marker"
+          ],
+          "evidence": [
+            {
+              "kind": "patch_marker",
+              "method": "phpinfo.patch-marker",
+              "description": "INI directive memory_hard_limit_percent is absent from a complete Core directive table: the build does not contain the fix",
+              "source_url": "http://127.0.0.1:8426/phpinfo.php",
+              "observed": "memory_hard_limit_percent not listed; 147 directives parsed",
+              "weight": 0.0,
+              "validated": true
+            },
+            {
+              "kind": "php_presence",
+              "method": "phpinfo",
+              "description": "phpinfo() output is exposed",
+              "source_url": "http://127.0.0.1:8426/phpinfo.php",
+              "observed": "PHP Version 8.4.26",
+              "weight": 1.0,
+              "validated": false
+            },
+            {
+              "kind": "php_version",
+              "method": "phpinfo",
+              "description": "PHP version 8.4.26 reported by phpinfo()",
+              "source_url": "http://127.0.0.1:8426/phpinfo.php",
+              "observed": "8.4.26",
+              "weight": 0.0,
+              "validated": false
+            }
+          ],
+          "assumptions": [
+            "The phpinfo() page is served by the same PHP runtime (SAPI, pool, binary) as the application.",
+            "Vendor backports include the upstream memory_hard_limit_percent directive. It is part of the fix commit on every branch."
+          ],
+          "limitations": [
+            "No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).",
+            "The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build."
+          ],
+          "exposure_factors": [
+            "Server API 'Built-in HTTP server': the advisory does not discuss this SAPI"
+          ],
+          "next_steps": [
+            "Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later, then restart all PHP workers.",
+            "Until upgraded, apply the advisory mitigations (request-size limits at the front end, disable unused multipart/upload progress) and watch for repeated HTTP 500s and worker churn.",
+            "Disable or restrict the exposed phpinfo() page."
+          ],
+          "independently_validated": true
+        },
+        {
+          "target": "http://127.0.0.1:8426/",
+          "cve": "CVE-2026-109619",
+          "classification": "CONFIRMED_VULNERABLE",
+          "confidence": "HIGH",
+          "rationale": "phpinfo() at http://127.0.0.1:8426/phpinfo.php reports PHP 8.4.26 (Upstream version 8.4.26 is below the fixed release 8.4.27), and its complete Core directive table lacks memory_hard_limit_percent, which the fix registers. The build does not contain the fix.",
+          "detection_methods": [
+            "phpinfo",
+            "phpinfo.patch-marker"
+          ],
+          "evidence": [
+            {
+              "kind": "patch_marker",
+              "method": "phpinfo.patch-marker",
+              "description": "INI directive memory_hard_limit_percent is absent from a complete Core directive table: the build does not contain the fix",
+              "source_url": "http://127.0.0.1:8426/phpinfo.php",
+              "observed": "memory_hard_limit_percent not listed; 147 directives parsed",
+              "weight": 0.0,
+              "validated": true
+            },
+            {
+              "kind": "php_presence",
+              "method": "phpinfo",
+              "description": "phpinfo() output is exposed",
+              "source_url": "http://127.0.0.1:8426/phpinfo.php",
+              "observed": "PHP Version 8.4.26",
+              "weight": 1.0,
+              "validated": false
+            },
+            {
+              "kind": "php_version",
+              "method": "phpinfo",
+              "description": "PHP version 8.4.26 reported by phpinfo()",
+              "source_url": "http://127.0.0.1:8426/phpinfo.php",
+              "observed": "8.4.26",
+              "weight": 0.0,
+              "validated": false
+            }
+          ],
+          "assumptions": [
+            "The phpinfo() page is served by the same PHP runtime (SAPI, pool, binary) as the application.",
+            "Vendor backports include the upstream memory_hard_limit_percent directive. It is part of the fix commit on every branch."
+          ],
+          "limitations": [
+            "No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).",
+            "The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build."
+          ],
+          "exposure_factors": [
+            "Server API 'Built-in HTTP server': the advisory does not discuss this SAPI",
+            "session.upload_progress.enabled=On: the session upload-progress path named in the advisory is enabled"
+          ],
+          "next_steps": [
+            "Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later, then restart all PHP workers.",
+            "Until upgraded, apply the advisory mitigations (request-size limits at the front end, disable unused multipart/upload progress) and watch for repeated HTTP 500s and worker churn.",
+            "Disable or restrict the exposed phpinfo() page."
+          ],
+          "independently_validated": true
+        }
+      ],
+      "anomalies": [],
+      "environment_evidence": [
+        {
+          "kind": "environment",
+          "method": "phpinfo.server-api",
+          "description": "Server API: Built-in HTTP server",
+          "source_url": "http://127.0.0.1:8426/phpinfo.php",
+          "observed": "Built-in HTTP server",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "environment",
+          "method": "phpinfo.system",
+          "description": "System",
+          "source_url": "http://127.0.0.1:8426/phpinfo.php",
+          "observed": "Linux lab 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:10:14 UTC 2026 x86_64",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.session.upload_progress.enabled",
+          "description": "session.upload_progress.enabled = On",
+          "source_url": "http://127.0.0.1:8426/phpinfo.php",
+          "observed": "On",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.memory_limit",
+          "description": "memory_limit = 128M",
+          "source_url": "http://127.0.0.1:8426/phpinfo.php",
+          "observed": "128M",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.post_max_size",
+          "description": "post_max_size = 8M",
+          "source_url": "http://127.0.0.1:8426/phpinfo.php",
+          "observed": "8M",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.max_input_nesting_level",
+          "description": "max_input_nesting_level = 64",
+          "source_url": "http://127.0.0.1:8426/phpinfo.php",
+          "observed": "64",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.display_errors",
+          "description": "display_errors = On",
+          "source_url": "http://127.0.0.1:8426/phpinfo.php",
+          "observed": "On",
+          "weight": 0.0,
+          "validated": false
+        }
+      ],
+      "methods_executed": [
+        "passive.get-target",
+        "operator.phpinfo-url"
+      ],
+      "notes": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:8426/",
+          "status": 200,
+          "error": null,
+          "elapsed": 0.001
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:8426/phpinfo.php",
+          "status": 200,
+          "error": null,
+          "elapsed": 0.001
+        }
+      ],
+      "stopped_reason": null
+    },
+    {
+      "target": "http://127.0.0.1:8512/",
+      "started": "2026-10-21T20:39:54+00:00",
+      "finished": "2026-10-21T20:39:54+00:00",
+      "reachable": true,
+      "final_url": "http://127.0.0.1:8512/",
+      "http_status": 200,
+      "error": null,
+      "php_detection": {
+        "detected": true,
+        "confidence": "HIGH",
+        "score": 1.0,
+        "evidence": [
+          {
+            "kind": "php_presence",
+            "method": "header.x-powered-by",
+            "description": "X-Powered-By header names PHP",
+            "source_url": "http://127.0.0.1:8512/",
+            "observed": "PHP/8.5.12",
+            "weight": 0.95,
+            "validated": false
+          },
+          {
+            "kind": "php_presence",
+            "method": "cookie.phpsessid",
+            "description": "Default PHP session cookie name (session.name)",
+            "source_url": "http://127.0.0.1:8512/",
+            "observed": "PHPSESSID=<32 chars>",
+            "weight": 0.6,
+            "validated": false
+          },
+          {
+            "kind": "php_presence",
+            "method": "phpinfo",
+            "description": "phpinfo() output is exposed",
+            "source_url": "http://127.0.0.1:8512/phpinfo.php",
+            "observed": "PHP Version 8.5.12",
+            "weight": 1.0,
+            "validated": false
+          },
+          {
+            "kind": "php_presence",
+            "method": "header.x-powered-by",
+            "description": "X-Powered-By header names PHP",
+            "source_url": "http://127.0.0.1:8512/phpinfo.php",
+            "observed": "PHP/8.5.12",
+            "weight": 0.95,
+            "validated": false
+          }
+        ],
+        "non_php_evidence": []
+      },
+      "php_version": "8.5.12",
+      "version_observations": [
+        {
+          "version": "8.5.12",
+          "method": "header.x-powered-by",
+          "url": "http://127.0.0.1:8512/",
+          "vendor": null,
+          "backport_possible": false
+        },
+        {
+          "version": "8.5.12",
+          "method": "phpinfo",
+          "url": "http://127.0.0.1:8512/phpinfo.php",
+          "vendor": null,
+          "backport_possible": false
+        },
+        {
+          "version": "8.5.12",
+          "method": "header.x-powered-by",
+          "url": "http://127.0.0.1:8512/phpinfo.php",
+          "vendor": null,
+          "backport_possible": false
+        }
+      ],
+      "phpinfo_pages": [
+        "http://127.0.0.1:8512/phpinfo.php"
+      ],
+      "findings": [
+        {
+          "target": "http://127.0.0.1:8512/",
+          "cve": "CVE-2026-109618",
+          "classification": "CONFIRMED_PATCHED",
+          "confidence": "HIGH",
+          "rationale": "phpinfo() at http://127.0.0.1:8512/phpinfo.php lists memory_hard_limit_percent, which is registered only by builds that contain the fix (reported version 8.5.12).",
+          "detection_methods": [
+            "phpinfo",
+            "phpinfo.patch-marker"
+          ],
+          "evidence": [
+            {
+              "kind": "patch_marker",
+              "method": "phpinfo.patch-marker",
+              "description": "INI directive memory_hard_limit_percent is registered: the build contains the 'Avoid state corruption via bailout' fix",
+              "source_url": "http://127.0.0.1:8512/phpinfo.php",
+              "observed": "memory_hard_limit_percent => ('no value', 'no value')",
+              "weight": 0.0,
+              "validated": true
+            },
+            {
+              "kind": "php_presence",
+              "method": "phpinfo",
+              "description": "phpinfo() output is exposed",
+              "source_url": "http://127.0.0.1:8512/phpinfo.php",
+              "observed": "PHP Version 8.5.12",
+              "weight": 1.0,
+              "validated": false
+            },
+            {
+              "kind": "php_version",
+              "method": "phpinfo",
+              "description": "PHP version 8.5.12 reported by phpinfo()",
+              "source_url": "http://127.0.0.1:8512/phpinfo.php",
+              "observed": "8.5.12",
+              "weight": 0.0,
+              "validated": false
+            }
+          ],
+          "assumptions": [
+            "The phpinfo() page is served by the same PHP runtime (SAPI, pool, binary) as the application.",
+            "Vendor backports include the upstream memory_hard_limit_percent directive. It is part of the fix commit on every branch."
+          ],
+          "limitations": [
+            "No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).",
+            "The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build."
+          ],
+          "exposure_factors": [
+            "Server API 'Built-in HTTP server': the advisory does not discuss this SAPI"
+          ],
+          "next_steps": [
+            "No action needed for these CVEs on the assessed runtime. Confirm that every PHP pool and vhost on the host runs the same build."
+          ],
+          "independently_validated": true
+        },
+        {
+          "target": "http://127.0.0.1:8512/",
+          "cve": "CVE-2026-109619",
+          "classification": "CONFIRMED_PATCHED",
+          "confidence": "HIGH",
+          "rationale": "phpinfo() at http://127.0.0.1:8512/phpinfo.php lists memory_hard_limit_percent, which is registered only by builds that contain the fix (reported version 8.5.12).",
+          "detection_methods": [
+            "phpinfo",
+            "phpinfo.patch-marker"
+          ],
+          "evidence": [
+            {
+              "kind": "patch_marker",
+              "method": "phpinfo.patch-marker",
+              "description": "INI directive memory_hard_limit_percent is registered: the build contains the 'Avoid state corruption via bailout' fix",
+              "source_url": "http://127.0.0.1:8512/phpinfo.php",
+              "observed": "memory_hard_limit_percent => ('no value', 'no value')",
+              "weight": 0.0,
+              "validated": true
+            },
+            {
+              "kind": "php_presence",
+              "method": "phpinfo",
+              "description": "phpinfo() output is exposed",
+              "source_url": "http://127.0.0.1:8512/phpinfo.php",
+              "observed": "PHP Version 8.5.12",
+              "weight": 1.0,
+              "validated": false
+            },
+            {
+              "kind": "php_version",
+              "method": "phpinfo",
+              "description": "PHP version 8.5.12 reported by phpinfo()",
+              "source_url": "http://127.0.0.1:8512/phpinfo.php",
+              "observed": "8.5.12",
+              "weight": 0.0,
+              "validated": false
+            }
+          ],
+          "assumptions": [
+            "The phpinfo() page is served by the same PHP runtime (SAPI, pool, binary) as the application.",
+            "Vendor backports include the upstream memory_hard_limit_percent directive. It is part of the fix commit on every branch."
+          ],
+          "limitations": [
+            "No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).",
+            "The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build."
+          ],
+          "exposure_factors": [
+            "Server API 'Built-in HTTP server': the advisory does not discuss this SAPI",
+            "session.upload_progress.enabled=On: the session upload-progress path named in the advisory is enabled",
+            "fatal_error_backtraces=On (PHP 8.5 backtrace path; Off is a partial mitigation)"
+          ],
+          "next_steps": [
+            "No action needed for these CVEs on the assessed runtime. Confirm that every PHP pool and vhost on the host runs the same build."
+          ],
+          "independently_validated": true
+        }
+      ],
+      "anomalies": [],
+      "environment_evidence": [
+        {
+          "kind": "environment",
+          "method": "phpinfo.server-api",
+          "description": "Server API: Built-in HTTP server",
+          "source_url": "http://127.0.0.1:8512/phpinfo.php",
+          "observed": "Built-in HTTP server",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "environment",
+          "method": "phpinfo.system",
+          "description": "System",
+          "source_url": "http://127.0.0.1:8512/phpinfo.php",
+          "observed": "Linux lab 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:10:14 UTC 2026 x86_64",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.session.upload_progress.enabled",
+          "description": "session.upload_progress.enabled = On",
+          "source_url": "http://127.0.0.1:8512/phpinfo.php",
+          "observed": "On",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.fatal_error_backtraces",
+          "description": "fatal_error_backtraces = On",
+          "source_url": "http://127.0.0.1:8512/phpinfo.php",
+          "observed": "On",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.memory_limit",
+          "description": "memory_limit = 128M",
+          "source_url": "http://127.0.0.1:8512/phpinfo.php",
+          "observed": "128M",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.post_max_size",
+          "description": "post_max_size = 8M",
+          "source_url": "http://127.0.0.1:8512/phpinfo.php",
+          "observed": "8M",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.max_input_nesting_level",
+          "description": "max_input_nesting_level = 64",
+          "source_url": "http://127.0.0.1:8512/phpinfo.php",
+          "observed": "64",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.display_errors",
+          "description": "display_errors = On",
+          "source_url": "http://127.0.0.1:8512/phpinfo.php",
+          "observed": "On",
+          "weight": 0.0,
+          "validated": false
+        },
+        {
+          "kind": "configuration",
+          "method": "phpinfo.ini.opcache.enable",
+          "description": "opcache.enable = On",
+          "source_url": "http://127.0.0.1:8512/phpinfo.php",
+          "observed": "On",
+          "weight": 0.0,
+          "validated": false
+        }
+      ],
+      "methods_executed": [
+        "passive.get-target",
+        "operator.phpinfo-url"
+      ],
+      "notes": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:8512/",
+          "status": 200,
+          "error": null,
+          "elapsed": 0.001
+        },
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:8512/phpinfo.php",
+          "status": 200,
+          "error": null,
+          "elapsed": 0.001
+        }
+      ],
+      "stopped_reason": null
+    },
+    {
+      "target": "http://127.0.0.1:9511/",
+      "started": "2026-10-21T20:39:54+00:00",
+      "finished": "2026-10-21T20:39:55+00:00",
+      "reachable": true,
+      "final_url": "http://127.0.0.1:9511/",
+      "http_status": 200,
+      "error": null,
+      "php_detection": {
+        "detected": true,
+        "confidence": "HIGH",
+        "score": 0.98,
+        "evidence": [
+          {
+            "kind": "php_presence",
+            "method": "header.x-powered-by",
+            "description": "X-Powered-By header names PHP",
+            "source_url": "http://127.0.0.1:9511/",
+            "observed": "PHP/8.5.11",
+            "weight": 0.95,
+            "validated": false
+          },
+          {
+            "kind": "php_presence",
+            "method": "cookie.phpsessid",
+            "description": "Default PHP session cookie name (session.name)",
+            "source_url": "http://127.0.0.1:9511/",
+            "observed": "PHPSESSID=<32 chars>",
+            "weight": 0.6,
+            "validated": false
+          }
+        ],
+        "non_php_evidence": []
+      },
+      "php_version": "8.5.11",
+      "version_observations": [
+        {
+          "version": "8.5.11",
+          "method": "header.x-powered-by",
+          "url": "http://127.0.0.1:9511/",
+          "vendor": null,
+          "backport_possible": false
+        }
+      ],
+      "phpinfo_pages": [],
+      "findings": [
+        {
+          "target": "http://127.0.0.1:9511/",
+          "cve": "CVE-2026-109618",
+          "classification": "POTENTIALLY_VULNERABLE",
+          "confidence": "HIGH",
+          "rationale": "header.x-powered-by on http://127.0.0.1:9511/ discloses PHP 8.5.11. Upstream version 8.5.11 is below the fixed release 8.5.12. The version string looks like an upstream build, but vendor or commercial backports cannot be ruled out remotely, so the missing fix is not confirmed.",
+          "detection_methods": [
+            "header.x-powered-by"
+          ],
+          "evidence": [
+            {
+              "kind": "php_version",
+              "method": "header.x-powered-by",
+              "description": "PHP version 8.5.11 disclosed in X-Powered-By",
+              "source_url": "http://127.0.0.1:9511/",
+              "observed": "PHP/8.5.11",
+              "weight": 0.0,
+              "validated": false
+            }
+          ],
+          "assumptions": [
+            "The disclosed version string reflects the PHP build that serves the application.",
+            "A version below the fixed release with no vendor backport means the fix is absent."
+          ],
+          "limitations": [
+            "No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).",
+            "The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build."
+          ],
+          "exposure_factors": [],
+          "next_steps": [
+            "Verify patch status on the host: php -i | grep -c memory_hard_limit_percent   # 1 = fix present, 0 = fix absent (run with the same PHP binary or SAPI that serves the site)",
+            "For distribution packages, check the package changelog for CVE-2026-109618/109619.",
+            "Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later, then restart all PHP workers."
+          ],
+          "independently_validated": false
+        },
+        {
+          "target": "http://127.0.0.1:9511/",
+          "cve": "CVE-2026-109619",
+          "classification": "POTENTIALLY_VULNERABLE",
+          "confidence": "HIGH",
+          "rationale": "header.x-powered-by on http://127.0.0.1:9511/ discloses PHP 8.5.11. Upstream version 8.5.11 is below the fixed release 8.5.12. The version string looks like an upstream build, but vendor or commercial backports cannot be ruled out remotely, so the missing fix is not confirmed.",
+          "detection_methods": [
+            "header.x-powered-by"
+          ],
+          "evidence": [
+            {
+              "kind": "php_version",
+              "method": "header.x-powered-by",
+              "description": "PHP version 8.5.11 disclosed in X-Powered-By",
+              "source_url": "http://127.0.0.1:9511/",
+              "observed": "PHP/8.5.11",
+              "weight": 0.0,
+              "validated": false
+            }
+          ],
+          "assumptions": [
+            "The disclosed version string reflects the PHP build that serves the application.",
+            "A version below the fixed release with no vendor backport means the fix is absent."
+          ],
+          "limitations": [
+            "No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).",
+            "The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build."
+          ],
+          "exposure_factors": [],
+          "next_steps": [
+            "Verify patch status on the host: php -i | grep -c memory_hard_limit_percent   # 1 = fix present, 0 = fix absent (run with the same PHP binary or SAPI that serves the site)",
+            "For distribution packages, check the package changelog for CVE-2026-109618/109619.",
+            "Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later, then restart all PHP workers."
+          ],
+          "independently_validated": false
+        }
+      ],
+      "anomalies": [],
+      "environment_evidence": [],
+      "methods_executed": [
+        "passive.get-target"
+      ],
+      "notes": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:9511/",
+          "status": 200,
+          "error": null,
+          "elapsed": 0.001
+        }
+      ],
+      "stopped_reason": null
+    },
+    {
+      "target": "http://127.0.0.1:8511/",
+      "started": "2026-10-21T20:39:55+00:00",
+      "finished": "2026-10-21T20:39:55+00:00",
+      "reachable": true,
+      "final_url": "http://127.0.0.1:8511/",
+      "http_status": 200,
+      "error": null,
+      "php_detection": {
+        "detected": true,
+        "confidence": "MEDIUM",
+        "score": 0.6,
+        "evidence": [
+          {
+            "kind": "php_presence",
+            "method": "cookie.phpsessid",
+            "description": "Default PHP session cookie name (session.name)",
+            "source_url": "http://127.0.0.1:8511/",
+            "observed": "PHPSESSID=<32 chars>",
+            "weight": 0.6,
+            "validated": false
+          }
+        ],
+        "non_php_evidence": []
+      },
+      "php_version": null,
+      "version_observations": [],
+      "phpinfo_pages": [],
+      "findings": [
+        {
+          "target": "http://127.0.0.1:8511/",
+          "cve": "CVE-2026-109618",
+          "classification": "INCONCLUSIVE",
+          "confidence": "LOW",
+          "rationale": "PHP was identified (MEDIUM confidence, score 0.6), but no version or patch information is disclosed. Running PHP alone does not establish exposure. Note that every PHP release before the 2026-10-21 fixes is affected.",
+          "detection_methods": [
+            "cookie.phpsessid"
+          ],
+          "evidence": [
+            {
+              "kind": "php_presence",
+              "method": "cookie.phpsessid",
+              "description": "Default PHP session cookie name (session.name)",
+              "source_url": "http://127.0.0.1:8511/",
+              "observed": "PHPSESSID=<32 chars>",
+              "weight": 0.6,
+              "validated": false
+            }
+          ],
+          "assumptions": [],
+          "limitations": [
+            "No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).",
+            "The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build."
+          ],
+          "exposure_factors": [],
+          "next_steps": [
+            "Establish the PHP version and patch status from the host side: php -i | grep -c memory_hard_limit_percent   # 1 = fix present, 0 = fix absent (run with the same PHP binary or SAPI that serves the site)",
+            "If an existing phpinfo() page is known, rescan with --phpinfo-url."
+          ],
+          "independently_validated": false
+        },
+        {
+          "target": "http://127.0.0.1:8511/",
+          "cve": "CVE-2026-109619",
+          "classification": "INCONCLUSIVE",
+          "confidence": "LOW",
+          "rationale": "PHP was identified (MEDIUM confidence, score 0.6), but no version or patch information is disclosed. Running PHP alone does not establish exposure. Note that every PHP release before the 2026-10-21 fixes is affected.",
+          "detection_methods": [
+            "cookie.phpsessid"
+          ],
+          "evidence": [
+            {
+              "kind": "php_presence",
+              "method": "cookie.phpsessid",
+              "description": "Default PHP session cookie name (session.name)",
+              "source_url": "http://127.0.0.1:8511/",
+              "observed": "PHPSESSID=<32 chars>",
+              "weight": 0.6,
+              "validated": false
+            }
+          ],
+          "assumptions": [],
+          "limitations": [
+            "No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).",
+            "The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build."
+          ],
+          "exposure_factors": [],
+          "next_steps": [
+            "Establish the PHP version and patch status from the host side: php -i | grep -c memory_hard_limit_percent   # 1 = fix present, 0 = fix absent (run with the same PHP binary or SAPI that serves the site)",
+            "If an existing phpinfo() page is known, rescan with --phpinfo-url."
+          ],
+          "independently_validated": false
+        }
+      ],
+      "anomalies": [],
+      "environment_evidence": [],
+      "methods_executed": [
+        "passive.get-target"
+      ],
+      "notes": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:8511/",
+          "status": 200,
+          "error": null,
+          "elapsed": 0.001
+        }
+      ],
+      "stopped_reason": null
+    },
+    {
+      "target": "http://127.0.0.1:8427/",
+      "started": "2026-10-21T20:39:55+00:00",
+      "finished": "2026-10-21T20:39:55+00:00",
+      "reachable": true,
+      "final_url": "http://127.0.0.1:8427/",
+      "http_status": 200,
+      "error": null,
+      "php_detection": {
+        "detected": true,
+        "confidence": "HIGH",
+        "score": 0.98,
+        "evidence": [
+          {
+            "kind": "php_presence",
+            "method": "header.x-powered-by",
+            "description": "X-Powered-By header names PHP",
+            "source_url": "http://127.0.0.1:8427/",
+            "observed": "PHP/8.4.27",
+            "weight": 0.95,
+            "validated": false
+          },
+          {
+            "kind": "php_presence",
+            "method": "cookie.phpsessid",
+            "description": "Default PHP session cookie name (session.name)",
+            "source_url": "http://127.0.0.1:8427/",
+            "observed": "PHPSESSID=<32 chars>",
+            "weight": 0.6,
+            "validated": false
+          }
+        ],
+        "non_php_evidence": []
+      },
+      "php_version": "8.4.27",
+      "version_observations": [
+        {
+          "version": "8.4.27",
+          "method": "header.x-powered-by",
+          "url": "http://127.0.0.1:8427/",
+          "vendor": null,
+          "backport_possible": false
+        }
+      ],
+      "phpinfo_pages": [],
+      "findings": [
+        {
+          "target": "http://127.0.0.1:8427/",
+          "cve": "CVE-2026-109618",
+          "classification": "CONFIRMED_PATCHED",
+          "confidence": "MEDIUM",
+          "rationale": "header.x-powered-by on http://127.0.0.1:8427/ discloses PHP 8.4.27. Upstream version 8.4.27 is at or above the fixed release 8.4.27. The fix shipped in this upstream release.",
+          "detection_methods": [
+            "header.x-powered-by"
+          ],
+          "evidence": [
+            {
+              "kind": "php_version",
+              "method": "header.x-powered-by",
+              "description": "PHP version 8.4.27 disclosed in X-Powered-By",
+              "source_url": "http://127.0.0.1:8427/",
+              "observed": "PHP/8.4.27",
+              "weight": 0.0,
+              "validated": false
+            }
+          ],
+          "assumptions": [
+            "The disclosed version string reflects the PHP build that serves the application.",
+            "The version header is genuine and not spoofed by the operator."
+          ],
+          "limitations": [
+            "No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).",
+            "The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build."
+          ],
+          "exposure_factors": [],
+          "next_steps": [
+            "No action needed for these CVEs on the assessed runtime. Confirm that every PHP pool and vhost on the host runs the same build."
+          ],
+          "independently_validated": false
+        },
+        {
+          "target": "http://127.0.0.1:8427/",
+          "cve": "CVE-2026-109619",
+          "classification": "CONFIRMED_PATCHED",
+          "confidence": "MEDIUM",
+          "rationale": "header.x-powered-by on http://127.0.0.1:8427/ discloses PHP 8.4.27. Upstream version 8.4.27 is at or above the fixed release 8.4.27. The fix shipped in this upstream release.",
+          "detection_methods": [
+            "header.x-powered-by"
+          ],
+          "evidence": [
+            {
+              "kind": "php_version",
+              "method": "header.x-powered-by",
+              "description": "PHP version 8.4.27 disclosed in X-Powered-By",
+              "source_url": "http://127.0.0.1:8427/",
+              "observed": "PHP/8.4.27",
+              "weight": 0.0,
+              "validated": false
+            }
+          ],
+          "assumptions": [
+            "The disclosed version string reflects the PHP build that serves the application.",
+            "The version header is genuine and not spoofed by the operator."
+          ],
+          "limitations": [
+            "No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).",
+            "The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build."
+          ],
+          "exposure_factors": [],
+          "next_steps": [
+            "No action needed for these CVEs on the assessed runtime. Confirm that every PHP pool and vhost on the host runs the same build."
+          ],
+          "independently_validated": false
+        }
+      ],
+      "anomalies": [],
+      "environment_evidence": [],
+      "methods_executed": [
+        "passive.get-target"
+      ],
+      "notes": [],
+      "requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:8427/",
+          "status": 200,
+          "error": null,
+          "elapsed": 0.001
+        }
+      ],
+      "stopped_reason": null
+    }
+  ],
+  "disclaimer": "This assessment is evidence-based and non-destructive. No safe, validated behavioural signature exists for these vulnerabilities, so remote conclusions rest on disclosed version information and existing phpinfo() output. INCONCLUSIVE does not mean 'not vulnerable'.",
+  "classification_definitions": {
+    "CONFIRMED_VULNERABLE": "Direct, verifiable evidence of an affected build that lacks the security fix.",
+    "CONFIRMED_PATCHED": "Reliable evidence that the fix is present.",
+    "POTENTIALLY_VULNERABLE": "Evidence points to possible exposure, but patch status cannot be established remotely.",
+    "INCONCLUSIVE": "Not enough evidence to establish exposure. This does not mean the host is not vulnerable.",
+    "NOT_APPLICABLE": "Reliable evidence that the assessed URL is not served by a PHP runtime."
+  }
+}

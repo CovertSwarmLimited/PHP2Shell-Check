@@ -1,0 +1,219 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>PHP2Shell Exposure Assessment</title>
+<style>
+:root{--bg:#fff;--fg:#1c1f24;--muted:#5d6670;--line:#dfe3e8;--card:#f7f8fa;
+--vuln:#b42318;--pot:#b54708;--inc:#175cd3;--ok:#067647;--na:#667085}
+@media (prefers-color-scheme:dark){:root{--bg:#121417;--fg:#e6e8eb;--muted:#9aa3ad;--line:#2b3036;
+--card:#1a1d21;--vuln:#f97066;--pot:#fdb022;--inc:#84adff;--ok:#47cd89;--na:#98a2b3}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
+font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:1080px;margin:0 auto;padding:32px 16px}h1{font-size:26px;margin:0 0 4px}
+h2{font-size:20px;margin:36px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+h3{font-size:16px;margin:20px 0 8px}.muted{color:var(--muted)}
+table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:7px 9px;border-bottom:1px solid var(--line)}
+th{font-weight:600;background:var(--card)}code,.mono{font-family:ui-monospace,Menlo,Consolas,monospace;
+font-size:13px;word-break:break-all}.card{background:var(--card);border:1px solid var(--line);
+border-radius:8px;padding:16px;margin:14px 0}.badge{display:inline-block;padding:2px 8px;border-radius:4px;
+font-weight:600;font-size:12px;border:1px solid currentColor;white-space:nowrap}
+.CONFIRMED_VULNERABLE{color:var(--vuln)}.POTENTIALLY_VULNERABLE{color:var(--pot)}
+.INCONCLUSIVE{color:var(--inc)}.CONFIRMED_PATCHED{color:var(--ok)}.NOT_APPLICABLE{color:var(--na)}
+.summary td:first-child{width:38%}ul{margin:6px 0 10px;padding-left:20px}
+.wrap{overflow-x:auto}details{margin:8px 0}summary{cursor:pointer;color:var(--muted)}
+</style></head><body><main>
+<h1>PHP2Shell Exposure Assessment</h1>
+<p class='muted'>CVE-2026-109618 and CVE-2026-109619 | php2shell-check 1.0.0 | scan 2026-10-21T20:39:53+00:00 to 2026-10-21T20:39:55+00:00 UTC</p>
+<div class='card'>This assessment is evidence-based and non-destructive. No safe, validated behavioural signature exists for these vulnerabilities, so remote conclusions rest on disclosed version information and existing phpinfo() output. INCONCLUSIVE does not mean &#x27;not vulnerable&#x27;.</div>
+<h2>Summary</h2><div class='wrap'><table><tr><th>Target</th><th>PHP</th><th>Version</th>
+<th>CVE-2026-109618</th>
+<th>CVE-2026-109619</th>
+</tr>
+<tr><td class='mono'>http://127.0.0.1:8426/</td><td>HIGH</td><td class='mono'>8.4.26</td>
+<td><span class='badge CONFIRMED_VULNERABLE'>CONFIRMED_VULNERABLE</span></td>
+<td><span class='badge CONFIRMED_VULNERABLE'>CONFIRMED_VULNERABLE</span></td>
+</tr>
+<tr><td class='mono'>http://127.0.0.1:8512/</td><td>HIGH</td><td class='mono'>8.5.12</td>
+<td><span class='badge CONFIRMED_PATCHED'>CONFIRMED_PATCHED</span></td>
+<td><span class='badge CONFIRMED_PATCHED'>CONFIRMED_PATCHED</span></td>
+</tr>
+<tr><td class='mono'>http://127.0.0.1:9511/</td><td>HIGH</td><td class='mono'>8.5.11</td>
+<td><span class='badge POTENTIALLY_VULNERABLE'>POTENTIALLY_VULNERABLE</span></td>
+<td><span class='badge POTENTIALLY_VULNERABLE'>POTENTIALLY_VULNERABLE</span></td>
+</tr>
+<tr><td class='mono'>http://127.0.0.1:8511/</td><td>MEDIUM</td><td class='mono'>not disclosed</td>
+<td><span class='badge INCONCLUSIVE'>INCONCLUSIVE</span></td>
+<td><span class='badge INCONCLUSIVE'>INCONCLUSIVE</span></td>
+</tr>
+<tr><td class='mono'>http://127.0.0.1:8427/</td><td>HIGH</td><td class='mono'>8.4.27</td>
+<td><span class='badge CONFIRMED_PATCHED'>CONFIRMED_PATCHED</span></td>
+<td><span class='badge CONFIRMED_PATCHED'>CONFIRMED_PATCHED</span></td>
+</tr>
+</table></div>
+<table class='summary'><tr><th>Classification</th><th>Findings</th><th>Meaning</th></tr>
+<tr><td><span class='badge CONFIRMED_VULNERABLE'>CONFIRMED_VULNERABLE</span></td><td>2</td><td>Direct, verifiable evidence of an affected build that lacks the security fix.</td></tr>
+<tr><td><span class='badge CONFIRMED_PATCHED'>CONFIRMED_PATCHED</span></td><td>4</td><td>Reliable evidence that the fix is present.</td></tr>
+<tr><td><span class='badge POTENTIALLY_VULNERABLE'>POTENTIALLY_VULNERABLE</span></td><td>2</td><td>Evidence points to possible exposure, but patch status cannot be established remotely.</td></tr>
+<tr><td><span class='badge INCONCLUSIVE'>INCONCLUSIVE</span></td><td>2</td><td>Not enough evidence to establish exposure. This does not mean the host is not vulnerable.</td></tr>
+<tr><td><span class='badge NOT_APPLICABLE'>NOT_APPLICABLE</span></td><td>0</td><td>Reliable evidence that the assessed URL is not served by a PHP runtime.</td></tr>
+</table>
+<h2>Findings by target</h2>
+<div class='card'><h3 class='mono'>http://127.0.0.1:8426/</h3>
+<table>
+<tr><th style='width:22%'>Final URL</th><td class='mono'>http://127.0.0.1:8426/</td></tr>
+<tr><th style='width:22%'>HTTP status</th><td class='mono'>200</td></tr>
+<tr><th style='width:22%'>PHP detection</th><td class='mono'>HIGH (score 1.0)</td></tr>
+<tr><th style='width:22%'>PHP version</th><td class='mono'>8.4.26</td></tr>
+<tr><th style='width:22%'>phpinfo() pages</th><td class='mono'>http://127.0.0.1:8426/phpinfo.php</td></tr>
+<tr><th style='width:22%'>Methods executed</th><td class='mono'>passive.get-target, operator.phpinfo-url</td></tr>
+<tr><th style='width:22%'>Requests sent</th><td class='mono'>2</td></tr>
+</table>
+<h3>CVE-2026-109618: <span class='badge CONFIRMED_VULNERABLE'>CONFIRMED_VULNERABLE</span> <span class='muted'>confidence HIGH | independently validated</span></h3>
+<p>phpinfo() at http://127.0.0.1:8426/phpinfo.php reports PHP 8.4.26 (Upstream version 8.4.26 is below the fixed release 8.4.27), and its complete Core directive table lacks memory_hard_limit_percent, which the fix registers. The build does not contain the fix.</p>
+<div class='wrap'><table><tr><th>Method</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Lab-validated</th></tr>
+<tr><td class='mono'>phpinfo.patch-marker</td><td>INI directive memory_hard_limit_percent is absent from a complete Core directive table: the build does not contain the fix</td><td class='mono'>memory_hard_limit_percent not listed; 147 directives parsed</td><td class='mono'>http://127.0.0.1:8426/phpinfo.php</td><td>yes</td></tr>
+<tr><td class='mono'>phpinfo</td><td>phpinfo() output is exposed</td><td class='mono'>PHP Version 8.4.26</td><td class='mono'>http://127.0.0.1:8426/phpinfo.php</td><td>no</td></tr>
+<tr><td class='mono'>phpinfo</td><td>PHP version 8.4.26 reported by phpinfo()</td><td class='mono'>8.4.26</td><td class='mono'>http://127.0.0.1:8426/phpinfo.php</td><td>no</td></tr>
+</table></div>
+<strong>Exposure factors</strong><ul><li>Server API &#x27;Built-in HTTP server&#x27;: the advisory does not discuss this SAPI</li></ul>
+<strong>Assumptions</strong><ul><li>The phpinfo() page is served by the same PHP runtime (SAPI, pool, binary) as the application.</li><li>Vendor backports include the upstream memory_hard_limit_percent directive. It is part of the fix commit on every branch.</li></ul>
+<strong>Recommended next steps</strong><ul><li>Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later, then restart all PHP workers.</li><li>Until upgraded, apply the advisory mitigations (request-size limits at the front end, disable unused multipart/upload progress) and watch for repeated HTTP 500s and worker churn.</li><li>Disable or restrict the exposed phpinfo() page.</li></ul>
+<details><summary>Limitations</summary><ul><li>No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).</li><li>The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build.</li></ul></details>
+<h3>CVE-2026-109619: <span class='badge CONFIRMED_VULNERABLE'>CONFIRMED_VULNERABLE</span> <span class='muted'>confidence HIGH | independently validated</span></h3>
+<p>phpinfo() at http://127.0.0.1:8426/phpinfo.php reports PHP 8.4.26 (Upstream version 8.4.26 is below the fixed release 8.4.27), and its complete Core directive table lacks memory_hard_limit_percent, which the fix registers. The build does not contain the fix.</p>
+<div class='wrap'><table><tr><th>Method</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Lab-validated</th></tr>
+<tr><td class='mono'>phpinfo.patch-marker</td><td>INI directive memory_hard_limit_percent is absent from a complete Core directive table: the build does not contain the fix</td><td class='mono'>memory_hard_limit_percent not listed; 147 directives parsed</td><td class='mono'>http://127.0.0.1:8426/phpinfo.php</td><td>yes</td></tr>
+<tr><td class='mono'>phpinfo</td><td>phpinfo() output is exposed</td><td class='mono'>PHP Version 8.4.26</td><td class='mono'>http://127.0.0.1:8426/phpinfo.php</td><td>no</td></tr>
+<tr><td class='mono'>phpinfo</td><td>PHP version 8.4.26 reported by phpinfo()</td><td class='mono'>8.4.26</td><td class='mono'>http://127.0.0.1:8426/phpinfo.php</td><td>no</td></tr>
+</table></div>
+<strong>Exposure factors</strong><ul><li>Server API &#x27;Built-in HTTP server&#x27;: the advisory does not discuss this SAPI</li><li>session.upload_progress.enabled=On: the session upload-progress path named in the advisory is enabled</li></ul>
+<strong>Assumptions</strong><ul><li>The phpinfo() page is served by the same PHP runtime (SAPI, pool, binary) as the application.</li><li>Vendor backports include the upstream memory_hard_limit_percent directive. It is part of the fix commit on every branch.</li></ul>
+<strong>Recommended next steps</strong><ul><li>Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later, then restart all PHP workers.</li><li>Until upgraded, apply the advisory mitigations (request-size limits at the front end, disable unused multipart/upload progress) and watch for repeated HTTP 500s and worker churn.</li><li>Disable or restrict the exposed phpinfo() page.</li></ul>
+<details><summary>Limitations</summary><ul><li>No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).</li><li>The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build.</li></ul></details>
+<details><summary>Environment and configuration observations</summary><ul><li>Server API: Built-in HTTP server: <code>Built-in HTTP server</code></li><li>System: <code>Linux lab 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:10:14 UTC 2026 x86_64</code></li><li>session.upload_progress.enabled = On: <code>On</code></li><li>memory_limit = 128M: <code>128M</code></li><li>post_max_size = 8M: <code>8M</code></li><li>max_input_nesting_level = 64: <code>64</code></li><li>display_errors = On: <code>On</code></li></ul></details>
+<details><summary>Request log</summary><div class='wrap'><table><tr><th>Method</th><th>URL</th><th>Status</th><th>Error</th></tr><tr><td>GET</td><td class='mono'>http://127.0.0.1:8426/</td><td>200</td><td></td></tr><tr><td>GET</td><td class='mono'>http://127.0.0.1:8426/phpinfo.php</td><td>200</td><td></td></tr></table></div></details></div>
+<div class='card'><h3 class='mono'>http://127.0.0.1:8512/</h3>
+<table>
+<tr><th style='width:22%'>Final URL</th><td class='mono'>http://127.0.0.1:8512/</td></tr>
+<tr><th style='width:22%'>HTTP status</th><td class='mono'>200</td></tr>
+<tr><th style='width:22%'>PHP detection</th><td class='mono'>HIGH (score 1.0)</td></tr>
+<tr><th style='width:22%'>PHP version</th><td class='mono'>8.5.12</td></tr>
+<tr><th style='width:22%'>phpinfo() pages</th><td class='mono'>http://127.0.0.1:8512/phpinfo.php</td></tr>
+<tr><th style='width:22%'>Methods executed</th><td class='mono'>passive.get-target, operator.phpinfo-url</td></tr>
+<tr><th style='width:22%'>Requests sent</th><td class='mono'>2</td></tr>
+</table>
+<h3>CVE-2026-109618: <span class='badge CONFIRMED_PATCHED'>CONFIRMED_PATCHED</span> <span class='muted'>confidence HIGH | independently validated</span></h3>
+<p>phpinfo() at http://127.0.0.1:8512/phpinfo.php lists memory_hard_limit_percent, which is registered only by builds that contain the fix (reported version 8.5.12).</p>
+<div class='wrap'><table><tr><th>Method</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Lab-validated</th></tr>
+<tr><td class='mono'>phpinfo.patch-marker</td><td>INI directive memory_hard_limit_percent is registered: the build contains the &#x27;Avoid state corruption via bailout&#x27; fix</td><td class='mono'>memory_hard_limit_percent =&gt; (&#x27;no value&#x27;, &#x27;no value&#x27;)</td><td class='mono'>http://127.0.0.1:8512/phpinfo.php</td><td>yes</td></tr>
+<tr><td class='mono'>phpinfo</td><td>phpinfo() output is exposed</td><td class='mono'>PHP Version 8.5.12</td><td class='mono'>http://127.0.0.1:8512/phpinfo.php</td><td>no</td></tr>
+<tr><td class='mono'>phpinfo</td><td>PHP version 8.5.12 reported by phpinfo()</td><td class='mono'>8.5.12</td><td class='mono'>http://127.0.0.1:8512/phpinfo.php</td><td>no</td></tr>
+</table></div>
+<strong>Exposure factors</strong><ul><li>Server API &#x27;Built-in HTTP server&#x27;: the advisory does not discuss this SAPI</li></ul>
+<strong>Assumptions</strong><ul><li>The phpinfo() page is served by the same PHP runtime (SAPI, pool, binary) as the application.</li><li>Vendor backports include the upstream memory_hard_limit_percent directive. It is part of the fix commit on every branch.</li></ul>
+<strong>Recommended next steps</strong><ul><li>No action needed for these CVEs on the assessed runtime. Confirm that every PHP pool and vhost on the host runs the same build.</li></ul>
+<details><summary>Limitations</summary><ul><li>No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).</li><li>The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build.</li></ul></details>
+<h3>CVE-2026-109619: <span class='badge CONFIRMED_PATCHED'>CONFIRMED_PATCHED</span> <span class='muted'>confidence HIGH | independently validated</span></h3>
+<p>phpinfo() at http://127.0.0.1:8512/phpinfo.php lists memory_hard_limit_percent, which is registered only by builds that contain the fix (reported version 8.5.12).</p>
+<div class='wrap'><table><tr><th>Method</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Lab-validated</th></tr>
+<tr><td class='mono'>phpinfo.patch-marker</td><td>INI directive memory_hard_limit_percent is registered: the build contains the &#x27;Avoid state corruption via bailout&#x27; fix</td><td class='mono'>memory_hard_limit_percent =&gt; (&#x27;no value&#x27;, &#x27;no value&#x27;)</td><td class='mono'>http://127.0.0.1:8512/phpinfo.php</td><td>yes</td></tr>
+<tr><td class='mono'>phpinfo</td><td>phpinfo() output is exposed</td><td class='mono'>PHP Version 8.5.12</td><td class='mono'>http://127.0.0.1:8512/phpinfo.php</td><td>no</td></tr>
+<tr><td class='mono'>phpinfo</td><td>PHP version 8.5.12 reported by phpinfo()</td><td class='mono'>8.5.12</td><td class='mono'>http://127.0.0.1:8512/phpinfo.php</td><td>no</td></tr>
+</table></div>
+<strong>Exposure factors</strong><ul><li>Server API &#x27;Built-in HTTP server&#x27;: the advisory does not discuss this SAPI</li><li>session.upload_progress.enabled=On: the session upload-progress path named in the advisory is enabled</li><li>fatal_error_backtraces=On (PHP 8.5 backtrace path; Off is a partial mitigation)</li></ul>
+<strong>Assumptions</strong><ul><li>The phpinfo() page is served by the same PHP runtime (SAPI, pool, binary) as the application.</li><li>Vendor backports include the upstream memory_hard_limit_percent directive. It is part of the fix commit on every branch.</li></ul>
+<strong>Recommended next steps</strong><ul><li>No action needed for these CVEs on the assessed runtime. Confirm that every PHP pool and vhost on the host runs the same build.</li></ul>
+<details><summary>Limitations</summary><ul><li>No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).</li><li>The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build.</li></ul></details>
+<details><summary>Environment and configuration observations</summary><ul><li>Server API: Built-in HTTP server: <code>Built-in HTTP server</code></li><li>System: <code>Linux lab 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:10:14 UTC 2026 x86_64</code></li><li>session.upload_progress.enabled = On: <code>On</code></li><li>fatal_error_backtraces = On: <code>On</code></li><li>memory_limit = 128M: <code>128M</code></li><li>post_max_size = 8M: <code>8M</code></li><li>max_input_nesting_level = 64: <code>64</code></li><li>display_errors = On: <code>On</code></li><li>opcache.enable = On: <code>On</code></li></ul></details>
+<details><summary>Request log</summary><div class='wrap'><table><tr><th>Method</th><th>URL</th><th>Status</th><th>Error</th></tr><tr><td>GET</td><td class='mono'>http://127.0.0.1:8512/</td><td>200</td><td></td></tr><tr><td>GET</td><td class='mono'>http://127.0.0.1:8512/phpinfo.php</td><td>200</td><td></td></tr></table></div></details></div>
+<div class='card'><h3 class='mono'>http://127.0.0.1:9511/</h3>
+<table>
+<tr><th style='width:22%'>Final URL</th><td class='mono'>http://127.0.0.1:9511/</td></tr>
+<tr><th style='width:22%'>HTTP status</th><td class='mono'>200</td></tr>
+<tr><th style='width:22%'>PHP detection</th><td class='mono'>HIGH (score 0.98)</td></tr>
+<tr><th style='width:22%'>PHP version</th><td class='mono'>8.5.11</td></tr>
+<tr><th style='width:22%'>phpinfo() pages</th><td class='mono'>none</td></tr>
+<tr><th style='width:22%'>Methods executed</th><td class='mono'>passive.get-target</td></tr>
+<tr><th style='width:22%'>Requests sent</th><td class='mono'>1</td></tr>
+</table>
+<h3>CVE-2026-109618: <span class='badge POTENTIALLY_VULNERABLE'>POTENTIALLY_VULNERABLE</span> <span class='muted'>confidence HIGH</span></h3>
+<p>header.x-powered-by on http://127.0.0.1:9511/ discloses PHP 8.5.11. Upstream version 8.5.11 is below the fixed release 8.5.12. The version string looks like an upstream build, but vendor or commercial backports cannot be ruled out remotely, so the missing fix is not confirmed.</p>
+<div class='wrap'><table><tr><th>Method</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Lab-validated</th></tr>
+<tr><td class='mono'>header.x-powered-by</td><td>PHP version 8.5.11 disclosed in X-Powered-By</td><td class='mono'>PHP/8.5.11</td><td class='mono'>http://127.0.0.1:9511/</td><td>no</td></tr>
+</table></div>
+<strong>Assumptions</strong><ul><li>The disclosed version string reflects the PHP build that serves the application.</li><li>A version below the fixed release with no vendor backport means the fix is absent.</li></ul>
+<strong>Recommended next steps</strong><ul><li>Verify patch status on the host: php -i | grep -c memory_hard_limit_percent   # 1 = fix present, 0 = fix absent (run with the same PHP binary or SAPI that serves the site)</li><li>For distribution packages, check the package changelog for CVE-2026-109618/109619.</li><li>Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later, then restart all PHP workers.</li></ul>
+<details><summary>Limitations</summary><ul><li>No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).</li><li>The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build.</li></ul></details>
+<h3>CVE-2026-109619: <span class='badge POTENTIALLY_VULNERABLE'>POTENTIALLY_VULNERABLE</span> <span class='muted'>confidence HIGH</span></h3>
+<p>header.x-powered-by on http://127.0.0.1:9511/ discloses PHP 8.5.11. Upstream version 8.5.11 is below the fixed release 8.5.12. The version string looks like an upstream build, but vendor or commercial backports cannot be ruled out remotely, so the missing fix is not confirmed.</p>
+<div class='wrap'><table><tr><th>Method</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Lab-validated</th></tr>
+<tr><td class='mono'>header.x-powered-by</td><td>PHP version 8.5.11 disclosed in X-Powered-By</td><td class='mono'>PHP/8.5.11</td><td class='mono'>http://127.0.0.1:9511/</td><td>no</td></tr>
+</table></div>
+<strong>Assumptions</strong><ul><li>The disclosed version string reflects the PHP build that serves the application.</li><li>A version below the fixed release with no vendor backport means the fix is absent.</li></ul>
+<strong>Recommended next steps</strong><ul><li>Verify patch status on the host: php -i | grep -c memory_hard_limit_percent   # 1 = fix present, 0 = fix absent (run with the same PHP binary or SAPI that serves the site)</li><li>For distribution packages, check the package changelog for CVE-2026-109618/109619.</li><li>Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later, then restart all PHP workers.</li></ul>
+<details><summary>Limitations</summary><ul><li>No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).</li><li>The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build.</li></ul></details>
+<details><summary>Request log</summary><div class='wrap'><table><tr><th>Method</th><th>URL</th><th>Status</th><th>Error</th></tr><tr><td>GET</td><td class='mono'>http://127.0.0.1:9511/</td><td>200</td><td></td></tr></table></div></details></div>
+<div class='card'><h3 class='mono'>http://127.0.0.1:8511/</h3>
+<table>
+<tr><th style='width:22%'>Final URL</th><td class='mono'>http://127.0.0.1:8511/</td></tr>
+<tr><th style='width:22%'>HTTP status</th><td class='mono'>200</td></tr>
+<tr><th style='width:22%'>PHP detection</th><td class='mono'>MEDIUM (score 0.6)</td></tr>
+<tr><th style='width:22%'>PHP version</th><td class='mono'>not disclosed</td></tr>
+<tr><th style='width:22%'>phpinfo() pages</th><td class='mono'>none</td></tr>
+<tr><th style='width:22%'>Methods executed</th><td class='mono'>passive.get-target</td></tr>
+<tr><th style='width:22%'>Requests sent</th><td class='mono'>1</td></tr>
+</table>
+<h3>CVE-2026-109618: <span class='badge INCONCLUSIVE'>INCONCLUSIVE</span> <span class='muted'>confidence LOW</span></h3>
+<p>PHP was identified (MEDIUM confidence, score 0.6), but no version or patch information is disclosed. Running PHP alone does not establish exposure. Note that every PHP release before the 2026-10-21 fixes is affected.</p>
+<div class='wrap'><table><tr><th>Method</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Lab-validated</th></tr>
+<tr><td class='mono'>cookie.phpsessid</td><td>Default PHP session cookie name (session.name)</td><td class='mono'>PHPSESSID=&lt;32 chars&gt;</td><td class='mono'>http://127.0.0.1:8511/</td><td>no</td></tr>
+</table></div>
+<strong>Recommended next steps</strong><ul><li>Establish the PHP version and patch status from the host side: php -i | grep -c memory_hard_limit_percent   # 1 = fix present, 0 = fix absent (run with the same PHP binary or SAPI that serves the site)</li><li>If an existing phpinfo() page is known, rescan with --phpinfo-url.</li></ul>
+<details><summary>Limitations</summary><ul><li>No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).</li><li>The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build.</li></ul></details>
+<h3>CVE-2026-109619: <span class='badge INCONCLUSIVE'>INCONCLUSIVE</span> <span class='muted'>confidence LOW</span></h3>
+<p>PHP was identified (MEDIUM confidence, score 0.6), but no version or patch information is disclosed. Running PHP alone does not establish exposure. Note that every PHP release before the 2026-10-21 fixes is affected.</p>
+<div class='wrap'><table><tr><th>Method</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Lab-validated</th></tr>
+<tr><td class='mono'>cookie.phpsessid</td><td>Default PHP session cookie name (session.name)</td><td class='mono'>PHPSESSID=&lt;32 chars&gt;</td><td class='mono'>http://127.0.0.1:8511/</td><td>no</td></tr>
+</table></div>
+<strong>Recommended next steps</strong><ul><li>Establish the PHP version and patch status from the host side: php -i | grep -c memory_hard_limit_percent   # 1 = fix present, 0 = fix absent (run with the same PHP binary or SAPI that serves the site)</li><li>If an existing phpinfo() page is known, rescan with --phpinfo-url.</li></ul>
+<details><summary>Limitations</summary><ul><li>No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).</li><li>The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build.</li></ul></details>
+<details><summary>Request log</summary><div class='wrap'><table><tr><th>Method</th><th>URL</th><th>Status</th><th>Error</th></tr><tr><td>GET</td><td class='mono'>http://127.0.0.1:8511/</td><td>200</td><td></td></tr></table></div></details></div>
+<div class='card'><h3 class='mono'>http://127.0.0.1:8427/</h3>
+<table>
+<tr><th style='width:22%'>Final URL</th><td class='mono'>http://127.0.0.1:8427/</td></tr>
+<tr><th style='width:22%'>HTTP status</th><td class='mono'>200</td></tr>
+<tr><th style='width:22%'>PHP detection</th><td class='mono'>HIGH (score 0.98)</td></tr>
+<tr><th style='width:22%'>PHP version</th><td class='mono'>8.4.27</td></tr>
+<tr><th style='width:22%'>phpinfo() pages</th><td class='mono'>none</td></tr>
+<tr><th style='width:22%'>Methods executed</th><td class='mono'>passive.get-target</td></tr>
+<tr><th style='width:22%'>Requests sent</th><td class='mono'>1</td></tr>
+</table>
+<h3>CVE-2026-109618: <span class='badge CONFIRMED_PATCHED'>CONFIRMED_PATCHED</span> <span class='muted'>confidence MEDIUM</span></h3>
+<p>header.x-powered-by on http://127.0.0.1:8427/ discloses PHP 8.4.27. Upstream version 8.4.27 is at or above the fixed release 8.4.27. The fix shipped in this upstream release.</p>
+<div class='wrap'><table><tr><th>Method</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Lab-validated</th></tr>
+<tr><td class='mono'>header.x-powered-by</td><td>PHP version 8.4.27 disclosed in X-Powered-By</td><td class='mono'>PHP/8.4.27</td><td class='mono'>http://127.0.0.1:8427/</td><td>no</td></tr>
+</table></div>
+<strong>Assumptions</strong><ul><li>The disclosed version string reflects the PHP build that serves the application.</li><li>The version header is genuine and not spoofed by the operator.</li></ul>
+<strong>Recommended next steps</strong><ul><li>No action needed for these CVEs on the assessed runtime. Confirm that every PHP pool and vhost on the host runs the same build.</li></ul>
+<details><summary>Limitations</summary><ul><li>No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).</li><li>The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build.</li></ul></details>
+<h3>CVE-2026-109619: <span class='badge CONFIRMED_PATCHED'>CONFIRMED_PATCHED</span> <span class='muted'>confidence MEDIUM</span></h3>
+<p>header.x-powered-by on http://127.0.0.1:8427/ discloses PHP 8.4.27. Upstream version 8.4.27 is at or above the fixed release 8.4.27. The fix shipped in this upstream release.</p>
+<div class='wrap'><table><tr><th>Method</th><th>Evidence</th><th>Observed</th><th>Source</th><th>Lab-validated</th></tr>
+<tr><td class='mono'>header.x-powered-by</td><td>PHP version 8.4.27 disclosed in X-Powered-By</td><td class='mono'>PHP/8.4.27</td><td class='mono'>http://127.0.0.1:8427/</td><td>no</td></tr>
+</table></div>
+<strong>Assumptions</strong><ul><li>The disclosed version string reflects the PHP build that serves the application.</li><li>The version header is genuine and not spoofed by the operator.</li></ul>
+<strong>Recommended next steps</strong><ul><li>No action needed for these CVEs on the assessed runtime. Confirm that every PHP pool and vhost on the host runs the same build.</li></ul>
+<details><summary>Limitations</summary><ul><li>No safe, validated behavioural signature exists for these CVEs. Remote assessment relies on disclosed version information and exposed phpinfo() output (see research/limitations.md).</li><li>The scan covers only the URLs requested. Other paths, virtual hosts or PHP pools on the same host may run a different PHP build.</li></ul></details>
+<details><summary>Request log</summary><div class='wrap'><table><tr><th>Method</th><th>URL</th><th>Status</th><th>Error</th></tr><tr><td>GET</td><td class='mono'>http://127.0.0.1:8427/</td><td>200</td><td></td></tr></table></div></details></div>
+<h2>Detection methods and their validation status</h2><div class='wrap'><table><tr><th>ID</th><th>Signature</th><th>Status</th><th>Used remotely</th><th>Validation</th></tr>
+<tr><td>H1</td><td>Version disclosure compared with fixed releases</td><td>VALIDATED</td><td>yes</td><td>Version comparison logic is unit-tested against the advisory&#x27;s fixed releases.</td></tr>
+<tr><td>H4</td><td>phpinfo() lists the memory_hard_limit_percent INI directive</td><td>VALIDATED</td><td>yes</td><td>Lab: 8.4.26 and 8.5.11 lack the directive. 8.4.27 and 8.5.12 list it. Checked via CLI, CGI and the built-in web server over HTTP, through the scanner&#x27;s own parser, with default and custom INI. See research/results/.</td></tr>
+<tr><td>H2</td><td>Session upload-progress diagnostics with an invalid session ID</td><td>LAB_ONLY</td><td>no</td><td>Reproduced in the lab, but REJECTED for remote use. The probe drives the vulnerable pre-RINIT upload-progress code path, writes session state on the target, uses POST and multipart, and is observable only with display_errors=On.</td></tr>
+<tr><td>H3</td><td>OOM error message wording (&#x27;Hard memory limit ... exhausted&#x27;)</td><td>REJECTED</td><td>no</td><td>REJECTED: needs an induced OOM on the target, which is the exploitation trigger and is prohibited. Studied only in the patch source.</td></tr>
+<tr><td>H5</td><td>Timing, worker persistence or error-page differences on ordinary requests</td><td>REJECTED</td><td>no</td><td>REJECTED: the fix changes behaviour only on allocation failure, fatal-error and pre-RINIT paths. Lab comparison of benign GET responses (headers and body) between vulnerable and patched builds showed no difference beyond the version string.</td></tr>
+</table></div><p class='muted'>Only passive, lab-validated methods run against remote targets. LAB_ONLY and REJECTED hypotheses are unverified for remote use or unsafe, and none of them contributed to any finding.</p>
+<h2>Advisory references</h2>
+<div class='card'><h3>CVE-2026-109618 / GHSA-w8hw-w9fx-j79w: RCE via OOM corruption</h3><p class='muted'>CVSS 9.2 (CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N) | CWE-416, CWE-755, CWE-824, CWE-1325, CWE-1419</p><p>PHP leaves the request with longjmp() on out-of-memory errors. Request memory reachable before it is fully initialised can be left invalid and is then used during request shutdown. Multipart parsing can reach OOM while staying within apparent PHP limits. Exploitation was confirmed against Apache mod_php with default limits. Source analysis suggests PHP-FPM and FrankenPHP are also susceptible.</p><strong>Mitigations</strong><ul><li>Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later (the only complete fix).</li><li>Enforce decoded request size at the front end and lower post_max_size and max_input_nesting_level.</li><li>Bound multipart parts, headers and uploads, or block multipart at the front end if it is unused.</li><li>memory_limit=-1 is not a complete mitigation. Avoid RLIMIT_AS and RLIMIT_DATA.</li></ul><strong>References</strong><ul><li><a href='https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w'>https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w</a></li><li><a href='https://www.php.net/ChangeLog-8.php'>https://www.php.net/ChangeLog-8.php</a></li><li><a href='https://www.wiz.io/blog/php2shell-php-rce'>https://www.wiz.io/blog/php2shell-php-rce</a></li></ul></div>
+<div class='card'><h3>CVE-2026-109619 / GHSA-6wmf-4rv5-p3rp: RCE via stale global state</h3><p class='muted'>CVSS 9.2 (CVSS:4.0/AV:N/AC:H/AT:P/PR:N/UI:N/VC:H/VI:H/VA:H/SC:N/SI:N/SA:N) | CWE-416, CWE-755, CWE-824, CWE-1325, CWE-1419</p><p>Request-owned state (error, session, object and extension state) can survive in persistent worker globals after the request heap is freed, when a fatal error interrupts an operation before its reset. A later request on the same worker consumes the stale state before initialisation (use-after-free). Named paths include fatal error backtraces (PHP 8.5), session upload progress and INI diagnostics raised before request initialisation.</p><strong>Mitigations</strong><ul><li>Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later (the only reliable mitigation).</li><li>PHP 8.5: set fatal_error_backtraces=0 and restart workers.</li><li>Set session.upload_progress.enabled=0 and restart workers if the feature is unused.</li><li>Remove diagnostics from startup and per-request INI configuration. Consider pm.max_requests=1 (FPM).</li></ul><strong>References</strong><ul><li><a href='https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp'>https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp</a></li><li><a href='https://www.php.net/ChangeLog-8.php'>https://www.php.net/ChangeLog-8.php</a></li><li><a href='https://www.wiz.io/blog/php2shell-php-rce'>https://www.wiz.io/blog/php2shell-php-rce</a></li></ul></div>
+<p>Fixed releases: 8.2.35, 8.3.36, 8.4.27, 8.5.12. Branches older than 8.2 are end-of-life and receive no upstream fix.</p>
+</main></body></html>

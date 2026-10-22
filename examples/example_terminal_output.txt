@@ -1,0 +1,222 @@
+╭────────────────────────────────────────── http://127.0.0.1:8426/ ──────────────────────────────────────────╮
+│ Target         http://127.0.0.1:8426/                                                                      │
+│ HTTP status    200                                                                                         │
+│ PHP detected   HIGH (score 1.0)                                                                            │
+│ PHP version    8.4.26                                                                                      │
+│ phpinfo()      http://127.0.0.1:8426/phpinfo.php                                                           │
+│ Requests sent  2                                                                                           │
+│ ┏━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃ CVE             ┃ Assessment           ┃ Confidence ┃ Rationale                                        ┃ │
+│ ┡━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩ │
+│ │ CVE-2026-109618 │ CONFIRMED_VULNERABLE │ HIGH       │ phpinfo() at http://127.0.0.1:8426/phpinfo.php   │ │
+│ │                 │                      │            │ reports PHP 8.4.26 (Upstream version 8.4.26 is   │ │
+│ │                 │                      │            │ below the fixed release 8.4.27), and its         │ │
+│ │                 │                      │            │ complete Core directive table lacks              │ │
+│ │                 │                      │            │ memory_hard_limit_percent, which the fix         │ │
+│ │                 │                      │            │ registers. The build does not contain the fix.   │ │
+│ │ CVE-2026-109619 │ CONFIRMED_VULNERABLE │ HIGH       │ phpinfo() at http://127.0.0.1:8426/phpinfo.php   │ │
+│ │                 │                      │            │ reports PHP 8.4.26 (Upstream version 8.4.26 is   │ │
+│ │                 │                      │            │ below the fixed release 8.4.27), and its         │ │
+│ │                 │                      │            │ complete Core directive table lacks              │ │
+│ │                 │                      │            │ memory_hard_limit_percent, which the fix         │ │
+│ │                 │                      │            │ registers. The build does not contain the fix.   │ │
+│ └─────────────────┴──────────────────────┴────────────┴──────────────────────────────────────────────────┘ │
+│                                            Supporting evidence                                             │
+│ ┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃ Method                ┃ Observation                                  ┃ Value                           ┃ │
+│ ┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩ │
+│ │ header.x-powered-by   │ X-Powered-By header names PHP                │ PHP/8.4.26                      │ │
+│ │ cookie.phpsessid      │ Default PHP session cookie name              │ PHPSESSID=<32 chars>            │ │
+│ │                       │ (session.name)                               │                                 │ │
+│ │ phpinfo               │ phpinfo() output is exposed                  │ PHP Version 8.4.26              │ │
+│ │ header.x-powered-by   │ PHP version 8.4.26 disclosed in X-Powered-By │ PHP/8.4.26                      │ │
+│ │ phpinfo               │ PHP version 8.4.26 reported by phpinfo()     │ 8.4.26                          │ │
+│ │ phpinfo.server-api    │ Server API: Built-in HTTP server             │ Built-in HTTP server            │ │
+│ │ phpinfo.system        │ System                                       │ Linux lab    7.0.0-38-generic   │ │
+│ │                       │                                              │ #38-Ubuntu SMP PREEMPT_DYNAMIC  │ │
+│ │                       │                                              │ Fri Sep  4 09:10:14 UTC 2026    │ │
+│ │                       │                                              │ x86_64                          │ │
+│ │ phpinfo.patch-marker  │ INI directive memory_hard_limit_percent is   │ memory_hard_limit_percent not   │ │
+│ │                       │ absent from a complete Core directive table: │ listed; 147 directives parsed   │ │
+│ │                       │ the build does not contain the fix           │                                 │ │
+│ │ phpinfo.ini.session.u │ session.upload_progress.enabled = On         │ On                              │ │
+│ │ pload_progress.enable │                                              │                                 │ │
+│ │ d                     │                                              │                                 │ │
+│ │ phpinfo.ini.memory_li │ memory_limit = 128M                          │ 128M                            │ │
+│ │ mit                   │                                              │                                 │ │
+│ │ phpinfo.ini.post_max_ │ post_max_size = 8M                           │ 8M                              │ │
+│ │ size                  │                                              │                                 │ │
+│ │ phpinfo.ini.max_input │ max_input_nesting_level = 64                 │ 64                              │ │
+│ │ _nesting_level        │                                              │                                 │ │
+│ │ phpinfo.ini.display_e │ display_errors = On                          │ On                              │ │
+│ │ rrors                 │                                              │                                 │ │
+│ └───────────────────────┴──────────────────────────────────────────────┴─────────────────────────────────┘ │
+│ Recommended next steps                                                                                     │
+│ • Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later, then restart all PHP workers.                  │
+│ • Until upgraded, apply the advisory mitigations (request-size limits at the front end, disable unused     │
+│ multipart/upload progress) and watch for repeated HTTP 500s and worker churn.                              │
+│ • Disable or restrict the exposed phpinfo() page.                                                          │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────── http://127.0.0.1:8512/ ──────────────────────────────────────────╮
+│ Target         http://127.0.0.1:8512/                                                                      │
+│ HTTP status    200                                                                                         │
+│ PHP detected   HIGH (score 1.0)                                                                            │
+│ PHP version    8.5.12                                                                                      │
+│ phpinfo()      http://127.0.0.1:8512/phpinfo.php                                                           │
+│ Requests sent  2                                                                                           │
+│ ┏━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃ CVE             ┃ Assessment        ┃ Confidence ┃ Rationale                                           ┃ │
+│ ┡━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩ │
+│ │ CVE-2026-109618 │ CONFIRMED_PATCHED │ HIGH       │ phpinfo() at http://127.0.0.1:8512/phpinfo.php      │ │
+│ │                 │                   │            │ lists memory_hard_limit_percent, which is           │ │
+│ │                 │                   │            │ registered only by builds that contain the fix      │ │
+│ │                 │                   │            │ (reported version 8.5.12).                          │ │
+│ │ CVE-2026-109619 │ CONFIRMED_PATCHED │ HIGH       │ phpinfo() at http://127.0.0.1:8512/phpinfo.php      │ │
+│ │                 │                   │            │ lists memory_hard_limit_percent, which is           │ │
+│ │                 │                   │            │ registered only by builds that contain the fix      │ │
+│ │                 │                   │            │ (reported version 8.5.12).                          │ │
+│ └─────────────────┴───────────────────┴────────────┴─────────────────────────────────────────────────────┘ │
+│                                            Supporting evidence                                             │
+│ ┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃ Method                ┃ Observation                                  ┃ Value                           ┃ │
+│ ┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩ │
+│ │ header.x-powered-by   │ X-Powered-By header names PHP                │ PHP/8.5.12                      │ │
+│ │ cookie.phpsessid      │ Default PHP session cookie name              │ PHPSESSID=<32 chars>            │ │
+│ │                       │ (session.name)                               │                                 │ │
+│ │ phpinfo               │ phpinfo() output is exposed                  │ PHP Version 8.5.12              │ │
+│ │ header.x-powered-by   │ PHP version 8.5.12 disclosed in X-Powered-By │ PHP/8.5.12                      │ │
+│ │ phpinfo               │ PHP version 8.5.12 reported by phpinfo()     │ 8.5.12                          │ │
+│ │ phpinfo.server-api    │ Server API: Built-in HTTP server             │ Built-in HTTP server            │ │
+│ │ phpinfo.system        │ System                                       │ Linux lab    7.0.0-38-generic   │ │
+│ │                       │                                              │ #38-Ubuntu SMP PREEMPT_DYNAMIC  │ │
+│ │                       │                                              │ Fri Sep  4 09:10:14 UTC 2026    │ │
+│ │                       │                                              │ x86_64                          │ │
+│ │ phpinfo.patch-marker  │ INI directive memory_hard_limit_percent is   │ memory_hard_limit_percent =>    │ │
+│ │                       │ registered: the build contains the 'Avoid    │ ('no value', 'no value')        │ │
+│ │                       │ state corruption via bailout' fix            │                                 │ │
+│ │ phpinfo.ini.session.u │ session.upload_progress.enabled = On         │ On                              │ │
+│ │ pload_progress.enable │                                              │                                 │ │
+│ │ d                     │                                              │                                 │ │
+│ │ phpinfo.ini.fatal_err │ fatal_error_backtraces = On                  │ On                              │ │
+│ │ or_backtraces         │                                              │                                 │ │
+│ │ phpinfo.ini.memory_li │ memory_limit = 128M                          │ 128M                            │ │
+│ │ mit                   │                                              │                                 │ │
+│ │ phpinfo.ini.post_max_ │ post_max_size = 8M                           │ 8M                              │ │
+│ │ size                  │                                              │                                 │ │
+│ │ phpinfo.ini.max_input │ max_input_nesting_level = 64                 │ 64                              │ │
+│ │ _nesting_level        │                                              │                                 │ │
+│ │ phpinfo.ini.display_e │ display_errors = On                          │ On                              │ │
+│ │ rrors                 │                                              │                                 │ │
+│ │ phpinfo.ini.opcache.e │ opcache.enable = On                          │ On                              │ │
+│ │ nable                 │                                              │                                 │ │
+│ └───────────────────────┴──────────────────────────────────────────────┴─────────────────────────────────┘ │
+│ Recommended next steps                                                                                     │
+│ • No action needed for these CVEs on the assessed runtime. Confirm that every PHP pool and vhost on the    │
+│ host runs the same build.                                                                                  │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────── http://127.0.0.1:9511/ ──────────────────────────────────────────╮
+│ Target         http://127.0.0.1:9511/                                                                      │
+│ HTTP status    200                                                                                         │
+│ PHP detected   HIGH (score 0.98)                                                                           │
+│ PHP version    8.5.11                                                                                      │
+│ Requests sent  1                                                                                           │
+│ ┏━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃ CVE             ┃ Assessment             ┃ Confidence ┃ Rationale                                      ┃ │
+│ ┡━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩ │
+│ │ CVE-2026-109618 │ POTENTIALLY_VULNERABLE │ HIGH       │ header.x-powered-by on http://127.0.0.1:9511/  │ │
+│ │                 │                        │            │ discloses PHP 8.5.11. Upstream version 8.5.11  │ │
+│ │                 │                        │            │ is below the fixed release 8.5.12. The version │ │
+│ │                 │                        │            │ string looks like an upstream build, but       │ │
+│ │                 │                        │            │ vendor or commercial backports cannot be ruled │ │
+│ │                 │                        │            │ out remotely, so the missing fix is not        │ │
+│ │                 │                        │            │ confirmed.                                     │ │
+│ │ CVE-2026-109619 │ POTENTIALLY_VULNERABLE │ HIGH       │ header.x-powered-by on http://127.0.0.1:9511/  │ │
+│ │                 │                        │            │ discloses PHP 8.5.11. Upstream version 8.5.11  │ │
+│ │                 │                        │            │ is below the fixed release 8.5.12. The version │ │
+│ │                 │                        │            │ string looks like an upstream build, but       │ │
+│ │                 │                        │            │ vendor or commercial backports cannot be ruled │ │
+│ │                 │                        │            │ out remotely, so the missing fix is not        │ │
+│ │                 │                        │            │ confirmed.                                     │ │
+│ └─────────────────┴────────────────────────┴────────────┴────────────────────────────────────────────────┘ │
+│                                            Supporting evidence                                             │
+│ ┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃ Method                ┃ Observation                                  ┃ Value                           ┃ │
+│ ┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩ │
+│ │ header.x-powered-by   │ X-Powered-By header names PHP                │ PHP/8.5.11                      │ │
+│ │ cookie.phpsessid      │ Default PHP session cookie name              │ PHPSESSID=<32 chars>            │ │
+│ │                       │ (session.name)                               │                                 │ │
+│ │ header.x-powered-by   │ PHP version 8.5.11 disclosed in X-Powered-By │ PHP/8.5.11                      │ │
+│ └───────────────────────┴──────────────────────────────────────────────┴─────────────────────────────────┘ │
+│ Recommended next steps                                                                                     │
+│ • Verify patch status on the host: php -i | grep -c memory_hard_limit_percent   # 1 = fix present, 0 = fix │
+│ absent (run with the same PHP binary or SAPI that serves the site)                                         │
+│ • For distribution packages, check the package changelog for CVE-2026-109618/109619.                       │
+│ • Upgrade to PHP 8.2.35, 8.3.36, 8.4.27 or 8.5.12 or later, then restart all PHP workers.                  │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────── http://127.0.0.1:8511/ ──────────────────────────────────────────╮
+│ Target         http://127.0.0.1:8511/                                                                      │
+│ HTTP status    200                                                                                         │
+│ PHP detected   MEDIUM (score 0.6)                                                                          │
+│ PHP version    not disclosed                                                                               │
+│ Requests sent  1                                                                                           │
+│ ┏━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃ CVE             ┃ Assessment   ┃ Confidence ┃ Rationale                                                ┃ │
+│ ┡━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩ │
+│ │ CVE-2026-109618 │ INCONCLUSIVE │ LOW        │ PHP was identified (MEDIUM confidence, score 0.6), but   │ │
+│ │                 │              │            │ no version or patch information is disclosed. Running    │ │
+│ │                 │              │            │ PHP alone does not establish exposure. Note that every   │ │
+│ │                 │              │            │ PHP release before the 2026-10-21 fixes is affected.     │ │
+│ │ CVE-2026-109619 │ INCONCLUSIVE │ LOW        │ PHP was identified (MEDIUM confidence, score 0.6), but   │ │
+│ │                 │              │            │ no version or patch information is disclosed. Running    │ │
+│ │                 │              │            │ PHP alone does not establish exposure. Note that every   │ │
+│ │                 │              │            │ PHP release before the 2026-10-21 fixes is affected.     │ │
+│ └─────────────────┴──────────────┴────────────┴──────────────────────────────────────────────────────────┘ │
+│                                            Supporting evidence                                             │
+│ ┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃ Method                ┃ Observation                                  ┃ Value                           ┃ │
+│ ┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩ │
+│ │ cookie.phpsessid      │ Default PHP session cookie name              │ PHPSESSID=<32 chars>            │ │
+│ │                       │ (session.name)                               │                                 │ │
+│ └───────────────────────┴──────────────────────────────────────────────┴─────────────────────────────────┘ │
+│ Recommended next steps                                                                                     │
+│ • Establish the PHP version and patch status from the host side: php -i | grep -c                          │
+│ memory_hard_limit_percent   # 1 = fix present, 0 = fix absent (run with the same PHP binary or SAPI that   │
+│ serves the site)                                                                                           │
+│ • If an existing phpinfo() page is known, rescan with --phpinfo-url.                                       │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭────────────────────────────────────────── http://127.0.0.1:8427/ ──────────────────────────────────────────╮
+│ Target         http://127.0.0.1:8427/                                                                      │
+│ HTTP status    200                                                                                         │
+│ PHP detected   HIGH (score 0.98)                                                                           │
+│ PHP version    8.4.27                                                                                      │
+│ Requests sent  1                                                                                           │
+│ ┏━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃ CVE             ┃ Assessment        ┃ Confidence ┃ Rationale                                           ┃ │
+│ ┡━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩ │
+│ │ CVE-2026-109618 │ CONFIRMED_PATCHED │ MEDIUM     │ header.x-powered-by on http://127.0.0.1:8427/       │ │
+│ │                 │                   │            │ discloses PHP 8.4.27. Upstream version 8.4.27 is at │ │
+│ │                 │                   │            │ or above the fixed release 8.4.27. The fix shipped  │ │
+│ │                 │                   │            │ in this upstream release.                           │ │
+│ │ CVE-2026-109619 │ CONFIRMED_PATCHED │ MEDIUM     │ header.x-powered-by on http://127.0.0.1:8427/       │ │
+│ │                 │                   │            │ discloses PHP 8.4.27. Upstream version 8.4.27 is at │ │
+│ │                 │                   │            │ or above the fixed release 8.4.27. The fix shipped  │ │
+│ │                 │                   │            │ in this upstream release.                           │ │
+│ └─────────────────┴───────────────────┴────────────┴─────────────────────────────────────────────────────┘ │
+│                                            Supporting evidence                                             │
+│ ┏━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ │
+│ ┃ Method                ┃ Observation                                  ┃ Value                           ┃ │
+│ ┡━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩ │
+│ │ header.x-powered-by   │ X-Powered-By header names PHP                │ PHP/8.4.27                      │ │
+│ │ cookie.phpsessid      │ Default PHP session cookie name              │ PHPSESSID=<32 chars>            │ │
+│ │                       │ (session.name)                               │                                 │ │
+│ │ header.x-powered-by   │ PHP version 8.4.27 disclosed in X-Powered-By │ PHP/8.4.27                      │ │
+│ └───────────────────────┴──────────────────────────────────────────────┴─────────────────────────────────┘ │
+│ Recommended next steps                                                                                     │
+│ • No action needed for these CVEs on the assessed runtime. Confirm that every PHP pool and vhost on the    │
+│ host runs the same build.                                                                                  │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+This assessment is evidence-based and non-destructive. No safe, validated behavioural signature exists for 
+these vulnerabilities, so remote conclusions rest on disclosed version information and existing phpinfo() 
+output. INCONCLUSIVE does not mean 'not vulnerable'.
+Report written to examples/example_report.json
+Report written to examples/example_report.html

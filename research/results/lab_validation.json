@@ -1,0 +1,1846 @@
+{
+  "generated": "2026-10-21T20:32:09+00:00",
+  "repeat": 5,
+  "builds": {
+    "8.4.26": {
+      "expected_patched": false,
+      "h4_cli": {
+        "defaults(-n)": [
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          }
+        ],
+        "custom-limits": [
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          }
+        ],
+        "display_errors=On": [
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          }
+        ]
+      },
+      "h4_cgi": {
+        "defaults(-n)": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          }
+        ],
+        "custom-limits": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          }
+        ],
+        "display_errors=On": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.4.26"
+          }
+        ]
+      },
+      "h4_http": {
+        "defaults(-n)": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          }
+        ],
+        "custom-limits": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          }
+        ],
+        "display_errors=On": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.4.26"
+          }
+        ]
+      },
+      "h2": {
+        "default": [
+          {
+            "write_failure_warnings": 2,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 2,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 2,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 2,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 2,
+            "illegal_sid_warnings": 2
+          }
+        ]
+      }
+    },
+    "8.4.27": {
+      "expected_patched": true,
+      "h4_cli": {
+        "defaults(-n)": [
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          }
+        ],
+        "custom-limits": [
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          }
+        ],
+        "display_errors=On": [
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          }
+        ]
+      },
+      "h4_cgi": {
+        "defaults(-n)": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          }
+        ],
+        "custom-limits": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          }
+        ],
+        "display_errors=On": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.4.27"
+          }
+        ]
+      },
+      "h4_http": {
+        "defaults(-n)": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          }
+        ],
+        "custom-limits": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          }
+        ],
+        "display_errors=On": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.4.27"
+          }
+        ]
+      },
+      "h2": {
+        "default": [
+          {
+            "write_failure_warnings": 0,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 0,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 0,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 0,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 0,
+            "illegal_sid_warnings": 2
+          }
+        ]
+      }
+    },
+    "8.5.11": {
+      "expected_patched": false,
+      "h4_cli": {
+        "defaults(-n)": [
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          }
+        ],
+        "custom-limits": [
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          }
+        ],
+        "display_errors=On": [
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          },
+          {
+            "marker_present": false
+          }
+        ]
+      },
+      "h4_cgi": {
+        "defaults(-n)": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          }
+        ],
+        "custom-limits": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          }
+        ],
+        "display_errors=On": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": false,
+            "version": "8.5.11"
+          }
+        ]
+      },
+      "h4_http": {
+        "defaults(-n)": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          }
+        ],
+        "custom-limits": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          }
+        ],
+        "display_errors=On": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_VULNERABLE",
+              "CVE-2026-109619": "CONFIRMED_VULNERABLE"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "POTENTIALLY_VULNERABLE",
+              "CVE-2026-109619": "POTENTIALLY_VULNERABLE"
+            },
+            "headers_only_version": "8.5.11"
+          }
+        ]
+      },
+      "h2": {
+        "default": [
+          {
+            "write_failure_warnings": 2,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 2,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 2,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 2,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 2,
+            "illegal_sid_warnings": 2
+          }
+        ]
+      }
+    },
+    "8.5.12": {
+      "expected_patched": true,
+      "h4_cli": {
+        "defaults(-n)": [
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          }
+        ],
+        "custom-limits": [
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          }
+        ],
+        "display_errors=On": [
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          },
+          {
+            "marker_present": true
+          }
+        ]
+      },
+      "h4_cgi": {
+        "defaults(-n)": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          }
+        ],
+        "custom-limits": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          }
+        ],
+        "display_errors=On": [
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          },
+          {
+            "parsed": true,
+            "core_table": true,
+            "marker_present": true,
+            "version": "8.5.12"
+          }
+        ]
+      },
+      "h4_http": {
+        "defaults(-n)": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          }
+        ],
+        "expose_php=Off": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "INCONCLUSIVE",
+              "CVE-2026-109619": "INCONCLUSIVE"
+            },
+            "headers_only_version": null
+          }
+        ],
+        "custom-limits": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          }
+        ],
+        "display_errors=On": [
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          },
+          {
+            "with_phpinfo": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only": {
+              "CVE-2026-109618": "CONFIRMED_PATCHED",
+              "CVE-2026-109619": "CONFIRMED_PATCHED"
+            },
+            "headers_only_version": "8.5.12"
+          }
+        ]
+      },
+      "h2": {
+        "default": [
+          {
+            "write_failure_warnings": 0,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 0,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 0,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 0,
+            "illegal_sid_warnings": 2
+          },
+          {
+            "write_failure_warnings": 0,
+            "illegal_sid_warnings": 2
+          }
+        ]
+      }
+    }
+  },
+  "h5_identical_by_branch": {
+    "8.4": {
+      "/index.php": true,
+      "/session.php": true,
+      "/missing.php": true
+    },
+    "8.5": {
+      "/index.php": true,
+      "/session.php": true,
+      "/missing.php": true
+    }
+  }
+}

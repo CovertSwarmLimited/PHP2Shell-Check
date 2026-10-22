@@ -1,0 +1,71 @@
+# PHP2Shell signature-validation lab: vulnerable vs patched builds, on Apache
+# mod_php and on nginx + PHP-FPM.
+#
+# SAFETY: every port is bound to 127.0.0.1 only. Never expose this lab publicly.
+# Port publishing needs a non-internal bridge network, so containers keep
+# outbound access. Add host firewall rules if your policy requires an
+# air-gapped lab.
+#
+#   docker compose -f lab/docker/docker-compose.yml up -d
+#   python lab/docker/validate_docker.py
+#
+# Images are the official Docker Hub php images pinned to exact versions.
+# If a patched tag is not yet published, build from source with lab/local/.
+
+x-php-common: &php-common
+  volumes:
+    - ./www:/var/www/html:ro
+  networks: [lab]
+  read_only: false
+  mem_limit: 512m
+  pids_limit: 256
+
+services:
+  # --- Apache mod_php (the advisory confirms RCE for CVE-2026-109618 on this SAPI) ---
+  apache-8.4.26-vulnerable:
+    <<: *php-common
+    image: php:8.4.26-apache
+    ports: ["127.0.0.1:18101:80"]
+  apache-8.4.27-patched:
+    <<: *php-common
+    image: php:8.4.27-apache
+    ports: ["127.0.0.1:18102:80"]
+  apache-8.5.11-vulnerable:
+    <<: *php-common
+    image: php:8.5.11-apache
+    ports: ["127.0.0.1:18103:80"]
+  apache-8.5.12-patched:
+    <<: *php-common
+    image: php:8.5.12-apache
+    ports: ["127.0.0.1:18104:80"]
+
+  # --- nginx + PHP-FPM ---
+  fpm-8.4.26-vulnerable:
+    <<: *php-common
+    image: php:8.4.26-fpm
+  fpm-8.4.27-patched:
+    <<: *php-common
+    image: php:8.4.27-fpm
+  nginx-fpm-8.4.26:
+    image: nginx:1.27-alpine
+    environment: { PHP_FPM_HOST: fpm-8.4.26-vulnerable, NGINX_ENVSUBST_FILTER: PHP_FPM_HOST }
+    volumes:
+      - ./www:/var/www/html:ro
+      - ./nginx/default.conf:/etc/nginx/templates/default.conf.template:ro
+    ports: ["127.0.0.1:18111:80"]
+    networks: [lab]
+    depends_on: [fpm-8.4.26-vulnerable]
+  nginx-fpm-8.4.27:
+    image: nginx:1.27-alpine
+    environment: { PHP_FPM_HOST: fpm-8.4.27-patched, NGINX_ENVSUBST_FILTER: PHP_FPM_HOST }
+    volumes:
+      - ./www:/var/www/html:ro
+      - ./nginx/default.conf:/etc/nginx/templates/default.conf.template:ro
+    ports: ["127.0.0.1:18112:80"]
+    networks: [lab]
+    depends_on: [fpm-8.4.27-patched]
+
+networks:
+  lab:
+    driver: bridge
+    internal: false   # required for 127.0.0.1 port publishing (see SAFETY note)
