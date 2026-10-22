@@ -11,6 +11,9 @@ vulnerabilities:
 Fixed in PHP **8.2.35, 8.3.36, 8.4.27 and 8.5.12** (released 2026-10-21). Branches 8.1 and
 older are end-of-life and get no upstream fix.
 
+<img width="1098" height="1080" alt="Screenshot 2026-10-22 at 08 00 12" src="https://github.com/user-attachments/assets/bd5b7c2f-3b32-46df-a960-cdb280a69dbb" />
+
+
 ## Read this first: what the scanner can and cannot do
 
 The research (see [`research/`](research/)) found that **no safe behavioural signature
